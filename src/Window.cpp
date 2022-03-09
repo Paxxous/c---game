@@ -1,12 +1,15 @@
 #include <SDL2/SDL.h>
 #include <stdio.h>
-#include "renderWindow.h"
+#include "Window.h"
 
 // Set the window dimensions
 const int SCREEN_WIDTH = 600;
 const int SCREEN_HEIGHT = 500;
 
-void renderWindow() {
+bool renderWindow() {
+  // If there was success or not
+  bool success = true;
+
 
   // Set the window that we will be rendering to
   SDL_Window* window = NULL;
@@ -18,6 +21,9 @@ void renderWindow() {
   // Finally initialize SDL
   if (SDL_Init(SDL_INIT_VIDEO) < 0) {
     printf("SDL couldn't be initialized :(%s\n", SDL_GetError());
+
+    success = false;
+
   }
 
   // If everything goes well, it's go time
@@ -28,6 +34,8 @@ void renderWindow() {
     // Arguments that pass through the variable for debug purposes
     if (window == NULL) {
       printf("Shit the window couldn't be initialized %s\n", SDL_GetError());
+
+      success = false;
     }
 
     // Once everything is fine and dandy, start up the window
@@ -54,4 +62,6 @@ void renderWindow() {
       
     }
   }
+
+  return success;
 }
