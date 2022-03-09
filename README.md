@@ -1,0 +1,3 @@
+# My first c++ game using SLD2
+
+Theres nothing much here...
