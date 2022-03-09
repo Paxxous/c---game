@@ -6,16 +6,27 @@
 const int SCREEN_WIDTH = 600;
 const int SCREEN_HEIGHT = 500;
 
+
+// Window surface
+
+// Set the window that we will be rendering to
+SDL_Window* window = NULL;
+
+// The surface that is contained by the window
+SDL_Surface* screenSurface = NULL;
+
+
+
+bool loadMedia() {
+  // Success or yes
+  bool success = true;
+
+  return success;
+}
+
 bool renderWindow() {
   // If there was success or not
   bool success = true;
-
-
-  // Set the window that we will be rendering to
-  SDL_Window* window = NULL;
-
-  // The surgaace that is contained by the window
-  SDL_Surface* screenSurface = NULL;
 
 
   // Finally initialize SDL

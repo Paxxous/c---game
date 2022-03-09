@@ -1,1 +1,2 @@
 bool renderWindow();
+bool loadMedia();
