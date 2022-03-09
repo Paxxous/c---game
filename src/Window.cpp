@@ -7,19 +7,37 @@ const int SCREEN_WIDTH = 600;
 const int SCREEN_HEIGHT = 500;
 
 
-// Window surface
-
-// Set the window that we will be rendering to
 SDL_Window* window = NULL;
 
-// The surface that is contained by the window
 SDL_Surface* screenSurface = NULL;
 
+
+void close() {
+  // Dealocate the surfaces
+  SDL_FreeSurface(walter);
+  walter = NULL;
+
+  // Destroy the window
+  SDL_DestroyWindow(window);
+  window = NULL;
+
+  // Quit the SDL subsystems
+  SDL_Quit();
+}
 
 
 bool loadMedia() {
   // Success or yes
   bool success = true;
+
+  // Load walter.
+  walter = SDL_LoadBMP("media/walter.bmp");
+
+  if (walter == NULL) {
+    printf("An error >:(%s\n", SDL_GetError());
+
+    success = false;
+  }
 
   return success;
 }
@@ -60,19 +78,11 @@ bool renderWindow() {
       // Update the surface so that it actually shows
       SDL_UpdateWindowSurface(window);
 
-      // Main loop?
-      while (window) {
-        // do something or something
-      }
-
-      // Destroy the window
-      SDL_DestroyWindow(window);
-
-      // Quit the SDL subsystems
-      SDL_Quit();
       
     }
   }
+
+  close();
 
   return success;
 }
