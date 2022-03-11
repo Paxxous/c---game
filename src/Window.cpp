@@ -69,7 +69,7 @@ bool renderWindow() {
 
     // Once everything is fine and dandy, start up the window
     else {
-      // Get the window surface of the "window" variable
+      // Get the surface of the "window" variable
       screenSurface = SDL_GetWindowSurface(window);
 
       // Fill that surface white
@@ -78,6 +78,19 @@ bool renderWindow() {
       // Update the surface so that it actually shows
       SDL_UpdateWindowSurface(window);
 
+      // load.
+      loadMedia();
+
+      // Apply the image
+      SDL_BlitSurface(walter, NULL, screenSurface, NULL);
+
+      // Update the surface so it actually shows
+      SDL_UpdateWindowSurface(window);
+
+      // Main game loop
+      while (window) {
+        
+      }
       
     }
   }
