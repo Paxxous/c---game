@@ -12,6 +12,29 @@ SDL_Window* window = NULL;
 SDL_Surface* screenSurface = NULL;
 
 
+// Main game loop
+bool mainloop() {
+
+  bool kill = false;
+
+  SDL_Event e;
+
+  //while program is running
+  while (!kill) {
+
+    // Event handler
+    while (SDL_PollEvent(&e) != 0) {
+
+      // On x, close
+      if (e.type == SDL_QUIT) {
+        kill = true;
+      }
+    }
+  }
+
+  return kill;
+}
+
 void close() {
   // Dealocate the surfaces
   SDL_FreeSurface(walter);
@@ -26,6 +49,7 @@ void close() {
 }
 
 
+// Load the media
 bool loadMedia() {
   // Success or yes
   bool success = true;
@@ -42,6 +66,8 @@ bool loadMedia() {
   return success;
 }
 
+
+// Main function, to render the window
 bool renderWindow() {
   // If there was success or not
   bool success = true;
@@ -87,10 +113,7 @@ bool renderWindow() {
       // Update the surface so it actually shows
       SDL_UpdateWindowSurface(window);
 
-      // Main game loop
-      while (window) {
-        
-      }
+      mainloop();
       
     }
   }
