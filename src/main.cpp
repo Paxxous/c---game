@@ -4,6 +4,8 @@
 
 SDL_Surface* walter = NULL;
 
+SDL_Surface* ch = NULL;
+
 int main(int argc, char* args[]) {
 
   if (!renderWindow()) {
@@ -19,10 +21,19 @@ int main(int argc, char* args[]) {
       SDL_UpdateWindowSurface(window);
 
       // load.
-      loadMedia();
+      walter = loadMedia("res/game-images/walter.bmp");
+      ch = loadMedia("res/game-images/char.bmp");
 
-      // Apply the image
+
+      // Apply the images
+
+      // him.
       SDL_BlitSurface(walter, NULL, screenSurface, NULL);
+
+      // you
+      SDL_BlitSurface(ch, NULL, screenSurface, NULL);
+
+
 
       // Update the surface so it actually shows
       SDL_UpdateWindowSurface(window);

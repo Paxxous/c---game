@@ -1,5 +1,6 @@
 #include <SDL2/SDL.h>
 #include <stdio.h>
+#include <string>
 #include "Window.h"
 
 // Set the window dimensions
@@ -12,34 +13,14 @@ SDL_Window* window = NULL;
 SDL_Surface* screenSurface = NULL;
 
 
-// Main game loop
-bool mainloop() {
-
-  bool kill = false;
-
-  SDL_Event e;
-
-  //while program is running
-  while (!kill) {
-
-    // Event handler
-    while (SDL_PollEvent(&e) != 0) {
-
-      // On x, close
-      if (e.type == SDL_QUIT) {
-        kill = true;
-      }
-    }
-  }
-
-  return kill;
-}
-
 
 void close() {
   // Dealocate the surfaces
   SDL_FreeSurface(walter);
   walter = NULL;
+
+  SDL_FreeSurface(ch);
+  ch = NULL;
 
   // Destroy the window
   SDL_DestroyWindow(window);
@@ -51,20 +32,18 @@ void close() {
 
 
 // Load the media
-bool loadMedia() {
-  // Success or yes
-  bool success = true;
+SDL_Surface* loadMedia(std::string path) {
 
   // Load walter.
-  walter = SDL_LoadBMP("media/walter.bmp");
+  SDL_Surface* surface = SDL_LoadBMP(path.c_str());
+
+
 
   if (walter == NULL) {
     printf("An error >:(%s\n", SDL_GetError());
-
-    success = false;
   }
 
-  return success;
+  return surface;
 }
 
 
