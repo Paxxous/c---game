@@ -1,5 +1,7 @@
 bool renderWindow();
 bool loadMedia();
+bool mainloop();
+void close();
 
 // Window surface
 
