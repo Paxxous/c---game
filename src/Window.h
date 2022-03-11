@@ -1,5 +1,7 @@
+#include <string>
+
 bool renderWindow();
-bool loadMedia();
+SDL_Surface* loadMedia(std::string path);
 bool mainloop();
 void close();
 
@@ -13,3 +15,6 @@ extern SDL_Surface* screenSurface;
 
 // The flawless image that will be rendered
 extern SDL_Surface* walter;
+
+// you
+extern SDL_Surface* ch;
