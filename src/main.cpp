@@ -25,8 +25,6 @@ int main(int argc, char* args[]) {
       ch = loadMedia("res/game-images/char.bmp");
 
 
-      // Apply the images
-
       // him.
       SDL_BlitSurface(walter, NULL, screenSurface, NULL);
 
@@ -40,12 +38,13 @@ int main(int argc, char* args[]) {
 
 
 
-    // do something or something
+
+    // Main game loop
+
     bool kill = false;
 
     SDL_Event e;
 
-    //while program is running
     while (!kill) {
 
       // Event handler
@@ -56,6 +55,25 @@ int main(int argc, char* args[]) {
           kill = true;
         }
 
+        else if (e.type = SDL_KEYDOWN) {
+         switch(e.key.keysym.sym) {
+           case SDLK_UP:
+            printf("up\n");
+            break;
+
+           case SDLK_DOWN:
+            printf("down\n");
+            break;
+
+           case SDLK_RIGHT:
+            printf("left\n");
+            break;
+
+           case SDLK_LEFT:
+            printf("right\n");
+            break;
+         } 
+        }
       }
     }
   }

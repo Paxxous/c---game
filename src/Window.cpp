@@ -39,7 +39,7 @@ SDL_Surface* loadMedia(std::string path) {
 
 
 
-  if (walter == NULL) {
+  if (surface == NULL) {
     printf("An error >:(%s\n", SDL_GetError());
   }
 

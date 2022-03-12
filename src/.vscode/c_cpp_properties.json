@@ -4,16 +4,13 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/usr/include/SDL2"
+                "/usr/include/SDL2/"
             ],
             "defines": [],
-            "compilerPath": "/bin/clang++-10",
+            "compilerPath": "/usr/bin/clang-10",
             "cStandard": "c11",
             "cppStandard": "c++14",
-            "intelliSenseMode": "linux-clang-x64",
-            "compilerArgs": [
-                "-lSDL2"
-            ]
+            "intelliSenseMode": "linux-clang-x64"
         }
     ],
     "version": 4
